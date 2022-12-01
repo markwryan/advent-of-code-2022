@@ -1,12 +1,8 @@
 use std::fs;
 
 fn main() {
-    let file_path = "input.txt";
-    println!("In file {}", file_path);
-
-    let contents = fs::read_to_string(file_path)
+    let lines = fs::read_to_string("input.txt").lines()
         .expect("Should have been able to read the file");
-    let lines = contents.lines();
     let mut cal_count = 0;
     let mut cal_max = 0;
     for i in lines {
