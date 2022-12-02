@@ -1,8 +1,10 @@
 # Day 2
 
 ## Overview
+Puzzle is mainly based around mapping values from one to another across types. In this case, letters to numbers and then calculating a score based on that transform.
 
 ## Takeaway
+From Rust perspective, this was a good chance to play around with structs. I ended up making one for the Move in Part 1 and then the Outcome in part 2. I'm positive there is a more elegant way to solve this using a map function, but trying to stick to the boring basics for now.
 
 ## AoC Puzzle Text
 --- Day 2: Rock Paper Scissors ---
