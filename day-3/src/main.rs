@@ -19,5 +19,28 @@ fn main() {
         }
     }
     println!("Part 1 Total: {}", part1_total);
+
+    let lines = content.lines();
+    let mut part2_total = 0;
+    let mut elves: Vec<_> = lines.collect();
+    while elves.len() > 0 {
+        let mut elf1: Vec<char> = elves.pop().expect("elf should exist").chars().collect();
+        let mut elf2: Vec<char> = elves.pop().expect("elf should exist").chars().collect();
+        let mut elf3: Vec<char> = elves.pop().expect("elf should exist").chars().collect();
+        elf1.sort();
+        elf2.sort();
+        elf3.sort();
+        elf1.dedup();
+        elf2.dedup();
+        elf3.dedup();
+
+        for piece in elf1 {
+            if elf2.contains(&piece) && elf3.contains(&piece) {
+                part2_total += key.iter().position(|&x| x == piece).unwrap();
+            }
+        }
+    }
+    println!("Part 2 Total: {}", part2_total);
+    
 }
 
