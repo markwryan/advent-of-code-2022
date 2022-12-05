@@ -1,9 +1,10 @@
 # Day 2
 
 ## Overview
-
+String splitting and comparison, plus some heavy work with iterators.
 
 ## Takeaway
+Feeling better about this one than day 2 solution. Took a while to try and get the iterator in a way that would work in part 2 where I needed to grab multiple items per-pass from the content.
 
 ## AoC Puzzle Text
 --- Day 3: Rucksack Reorganization ---
