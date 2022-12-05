@@ -1,5 +1,6 @@
 use std::fs;
 
+// Stores the decoded score for each move (Rock, Paper, Scissors)
 struct Move {
     score: i32
 }
@@ -20,6 +21,7 @@ impl Move {
     }
 }
 
+// Stores the decoded score for each outcome (win, loss, draw)
 struct Outcome {
     score: i32
 }
@@ -45,11 +47,15 @@ fn main() {
     let content = fs::read_to_string("input.txt").expect("Should have been able to read the file");
     let mut part1_total = 0;
     for line in content.lines() {
+        //each line is one round of the game
         let round: Vec<_> = line.chars().collect();
+        // decrypt the opponents move
         let opponent = Move::new(round[0]);
+        // decrypt your move
         let you = Move::new(round[2]);
+        // look up score for that round result
         let round_score = result_score(&you, opponent);
-        
+        // add round result score to the move score
         part1_total += round_score + you.score;
         
     }
@@ -59,9 +65,13 @@ fn main() {
     let mut part2_total = 0;
     for line in content.lines() {
         let round: Vec<_> = line.chars().collect();
+        // decypt opponents move
         let opponent = Move::new(round[0]);
+        // decrypt outcome
         let outcome = Outcome::new(round[2]);
+        // look up move score based on the requested outcome
         let move_score = move_score(opponent, &outcome);
+        // add round result and move score to total
         part2_total += move_score + outcome.score;
     }
 
