@@ -1,4 +1,4 @@
-# Day 2
+# Day 3
 
 ## Overview
 String splitting and comparison, plus some heavy work with iterators.
