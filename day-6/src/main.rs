@@ -14,7 +14,6 @@ fn main() {
 
         if one != two && one != three && one != four && two != three && two != four && three != four
         {
-            println!("{} {} {} {}", one, two, three, four);
             output = i + 1;
             break;
         }
