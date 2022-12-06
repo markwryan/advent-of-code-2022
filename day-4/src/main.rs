@@ -16,20 +16,16 @@ fn main() {
         // Part 1: check contains
         if one_lower <= two_lower && one_upper >= two_upper {
             part1_total = part1_total + 1;
-        }
-        else if two_lower <= one_lower && two_upper >= one_upper {
+        } else if two_lower <= one_lower && two_upper >= one_upper {
             part1_total = part1_total + 1;
         }
 
         // Part 2: check overlap
         if one_lower <= two_lower && two_lower <= one_upper {
             part2_total = part2_total + 1;
-        }
-        else if two_lower <= one_lower && one_lower <= two_upper {
+        } else if two_lower <= one_lower && one_lower <= two_upper {
             part2_total = part2_total + 1;
         }
-
-        
     }
     println!("Part 1 Total: {}", part1_total);
     println!("Part 2 Total: {}", part2_total);

@@ -2,28 +2,28 @@ use std::fs;
 
 // Stores the decoded score for each move (Rock, Paper, Scissors)
 struct Move {
-    score: i32
+    score: i32,
 }
 
 impl Move {
     pub fn new(encoded_move: char) -> Self {
         let decoded_score;
         match encoded_move {
-            'A'|'X' => decoded_score = 1,
-            'B'|'Y' => decoded_score = 2,
-            'C'|'Z' => decoded_score = 3,
-            _ => decoded_score = 0
+            'A' | 'X' => decoded_score = 1,
+            'B' | 'Y' => decoded_score = 2,
+            'C' | 'Z' => decoded_score = 3,
+            _ => decoded_score = 0,
         }
 
         Move {
-            score: decoded_score
+            score: decoded_score,
         }
     }
 }
 
 // Stores the decoded score for each outcome (win, loss, draw)
 struct Outcome {
-    score: i32
+    score: i32,
 }
 
 impl Outcome {
@@ -33,11 +33,11 @@ impl Outcome {
             'X' => decoded_score = 0,
             'Y' => decoded_score = 3,
             'Z' => decoded_score = 6,
-            _ => decoded_score = 0
+            _ => decoded_score = 0,
         }
 
         Outcome {
-            score: decoded_score
+            score: decoded_score,
         }
     }
 }
@@ -57,7 +57,6 @@ fn main() {
         let round_score = result_score(&you, opponent);
         // add round result score to the move score
         part1_total += round_score + you.score;
-        
     }
     println!("Part 1 Total Score: {}", part1_total);
 
@@ -78,7 +77,7 @@ fn main() {
     println!("Part 2 Total: {}", part2_total);
 }
 
-fn result_score(you:&Move, opponent:Move) -> i32 {
+fn result_score(you: &Move, opponent: Move) -> i32 {
     // Draw
     if you.score == opponent.score {
         return 3;
@@ -90,7 +89,7 @@ fn result_score(you:&Move, opponent:Move) -> i32 {
     if you.score == 3 && opponent.score == 1 {
         return 0;
     }
-    // Paper beats Rock, Scissors beats Paper 
+    // Paper beats Rock, Scissors beats Paper
     if you.score > opponent.score {
         return 6;
     }
@@ -101,13 +100,13 @@ fn result_score(you:&Move, opponent:Move) -> i32 {
     return 10000000;
 }
 
-fn move_score(opponent:Move, outcome:&Outcome) -> i32 {
+fn move_score(opponent: Move, outcome: &Outcome) -> i32 {
     if outcome.score == 0 {
         match opponent.score {
             1 => return 3,
             2 => return 1,
             3 => return 2,
-            _ => return 0
+            _ => return 0,
         }
     }
 
@@ -120,10 +119,9 @@ fn move_score(opponent:Move, outcome:&Outcome) -> i32 {
             1 => return 2,
             2 => return 3,
             3 => return 1,
-            _ => return 0
+            _ => return 0,
         }
     }
     // Oops.
     return 10000000;
 }
-
