@@ -1,8 +1,10 @@
 # Day 7
 
 ## Overview
+Read in the filesystem and calculate some sizes based on the structure
 
 ## Takeaway
+My inital attempt at some form of tracking parent/child relationships and building out a tree was a gigantic failure. Rust's ownership model makes that really difficult. Eureka moment was when I stopped worrying and started tracking directories by their full name.
 
 ## AoC Puzzle Text
 
